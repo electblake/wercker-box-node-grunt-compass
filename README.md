@@ -19,9 +19,9 @@ The folling modules are installed globally for you.
 
 The following ruby gems are installed for you
 
-* SASS
-* Compass
-* Bundler
+* [SASS](http://sass-lang.com/)
+* [Compass](http://compass-style.org/)
+* [Bundler](http://bundler.io/)
 
 *check wercker details page for updated versions included*
 
