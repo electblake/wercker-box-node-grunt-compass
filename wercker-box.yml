@@ -1,0 +1,43 @@
+name: node-grunt-compass
+version: 0.5.4
+inherits: wercker/ubuntu12.04-nodejs0.10@1.2.0
+type: main
+platform: ubuntu@12.04
+description: "node.js (0.10.31), compass (1.0.1), sass (3.4) grunt, bower, phantomjs, karma"
+packages:
+  - nodejs@0.10.31
+  - phantomjs@1.9.2
+  - compass@1.0.1
+  - sass@3.4
+keywords:
+  - nodejs
+  - compass
+  - grunt
+  - bower
+  - phantomjs
+  - karma
+script: |
+  # remove the default installed optipng as it is too old
+  sudo apt-get remove optipng 
+  sudo apt-get update
+
+  # gems
+  sudo gem install compass
+  sudo gem install bundler
+  sudo gem install sass
+  bundle install
+
+  # node.js
+  sudo npm cache clean -f
+  sudo npm install -g n
+  sudo n stable
+  node -v
+
+  # bower global, so you dont need to change the package.json 
+  sudo npm install -g bower
+
+  # phantomjs
+  export PHANTOM_VERSION=1.9.2
+  wget https://phantomjs.googlecode.com/files/phantomjs-$PHANTOM_VERSION-linux-x86_64.tar.bz2
+  tar xfj phantomjs-$PHANTOM_VERSION-linux-x86_64.tar.bz2
+  sudo cp phantomjs-$PHANTOM_VERSION-linux-x86_64/bin/phantomjs /usr/local/bin
