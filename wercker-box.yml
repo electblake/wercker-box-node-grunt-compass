@@ -22,6 +22,8 @@ script: |
   sudo apt-get update
 
   # gems
+  sudo gem install compass
+  sudo gem install sass
   sudo gem install bundler
   bundle install
 
