@@ -22,9 +22,7 @@ script: |
   sudo apt-get update
 
   # gems
-  sudo gem install compass
   sudo gem install bundler
-  sudo gem install sass
   bundle install
 
   # node.js
