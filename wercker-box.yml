@@ -3,9 +3,10 @@ version: 0.0.2
 inherits: wercker/ubuntu12.04-nodejs0.10@1.2.0
 type: main
 platform: ubuntu@12.04
-description: "node.js (0.10.31), compass (1.0.1), sass (3.4) grunt, bower, phantomjs, karma"
+description: "node.js (~0.10.31), compass (1.0.1), sass (3.4) grunt (latest), bower, phantomjs, karma"
 packages:
-  - nodejs@0.10.31
+  - nodejs@stable
+  - grunt-cli@latest
   - phantomjs@1.9.2
   - compass@1.0.1
   - sass@3.4
@@ -32,6 +33,9 @@ script: |
   sudo npm install -g n
   sudo n stable
   node -v
+
+  # grunt-cli
+  npm install -g grunt-cli
 
   # bower global, so you dont need to change the package.json 
   sudo npm install -g bower
